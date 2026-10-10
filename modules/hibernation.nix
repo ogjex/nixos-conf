@@ -73,7 +73,7 @@ in
     };
 
     # 
-    systemd.sleep.Sleep = lib.mkIf cfg.hibernation.enable
+    systemd.sleep.settings.Sleep = lib.mkIf cfg.hibernation.enable
       "HibernateDelaySec=${cfg.hibernation.hibernateAfterSleepDelay}";
   };
 }
