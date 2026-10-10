@@ -253,14 +253,19 @@
     };
   };
 
-  services.swayidle = {
-    enable = true;   
-    timeouts = [
-#      { timeout = 600; command = "swaylock -f"; }  # optional: lock first
-      { timeout = 610; command = "swaymsg 'output * dpms off'";
-        resumeCommand = "swaymsg 'output * dpms on'"; }
-    ];
-  };
+  systemd.user.services.swayidle = {
+     description = "Idle manager for Wayland";
+     wantedBy = [ "graphical-session.target" ];
+     partOf = [ "graphical-session.target" ];
+     serviceConfig = {
+       ExecStart = ''
+         ${pkgs.swayidle}/bin/swayidle -w \
+           timeout 600 'swaymsg "output * dpms off"' \
+           resume 'swaymsg "output * dpms on"'
+       '';
+       Restart = "on-failure";
+     };
+   };
 
   systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true";
   services.syncthing = {
