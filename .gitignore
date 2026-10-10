@@ -5,5 +5,8 @@ result-*
 # Ignore automatically generated direnv output
 .direnv
 
+# ignore swap files
+.swp
+
 # Ignore NixOS interactive test driver history
 **/.nixos-test-history
