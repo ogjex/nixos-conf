@@ -68,7 +68,7 @@ in
       IdleActionSec="2m";
     };
 
-    systemd.sleep.settings.Sleep = lib.mkIf cfg.hibernation.enable
-      "HibernateDelaySec=${cfg.hibernation.hibernateAfterSleepDelay}";
-  };
+    systemd.sleep.settings.Sleep = lib.mkIf cfg.hibernation.enable {
+      HibernateDelaySec = ${cfg.hibernation.hibernateAfterSleepDelay};
+    };
 }
