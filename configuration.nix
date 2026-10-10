@@ -104,7 +104,7 @@
   console.keyMap = "dk-latin1";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jex = {
+  users.users.${user} = {
     isNormalUser = true;
     description = "magnus rotvit perlt hansen";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
@@ -239,16 +239,42 @@
     settings = rec {
       initial_session = {
         command = "${pkgs.mango}/bin/mango";
-        user = "jex";
+        user = ${user};
       };
       default_session = initial_session;
     };
   };
+
+  systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true";
   services.syncthing = {
     enable = true;
     gui.enable = true;
     discovery = true;
-  }
+    user = ${user};
+    group = "users";
+    configDir = "$HOME/.config/syncthing";
+#    overrideDevices = true;
+#    overrideFolders = true;
+## settings for devices
+#    settings = {
+#      devices = {
+#      };
+#    };
+#    folders = {
+#      "folder-id" = {
+#        label = "imgs";
+#        path = "/$HOME/imgs/";
+#      # share with these devices
+#      devices = [
+#        "device desktop"
+#        "device laptop home"
+#        "device laptop work"
+#        "device server"
+#        ];
+#      };
+#    };
+  };
+
   # .............................................................................................................................................................................................
   # git
   programs.git = {
