@@ -62,17 +62,12 @@ in
 
     # Set suspend-then-hibernate as defaults
     services.logind = lib.mkIf cfg.hibernation.enable {
-      lidSwitch = "suspend-then-hibernate";
-      settings = {
-        Login = ''
-        HandlePowerKey=suspend-then-hibernate
-        IdleAction=suspend-then-hibernate
-        IdleActionSec=2m
-      '';
-      };
+      handleLidSwitch = "suspend-then-hibernate";
+      HandlePowerKey="suspend-then-hibernate";
+      IdleAction="suspend-then-hibernate";
+      IdleActionSec="2m";
     };
 
-    # 
     systemd.sleep.settings.Sleep = lib.mkIf cfg.hibernation.enable
       "HibernateDelaySec=${cfg.hibernation.hibernateAfterSleepDelay}";
   };
