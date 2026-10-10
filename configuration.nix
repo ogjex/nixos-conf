@@ -198,10 +198,10 @@
     alacritty
     tealdeer
     fastfetch
-    eza
+    eza # better ls
     btop
     htop
-    fd
+    fd # better find
     ripgrep
     starship
     nerd-fonts.jetbrains-mono
@@ -220,6 +220,7 @@
 #    citrix_workspace
     libreoffice
     pdftk
+    pandoc
     plantuml
     drawio
     texliveFull
