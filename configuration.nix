@@ -240,7 +240,7 @@
     settings = rec {
       initial_session = {
         command = "${pkgs.mango}/bin/mango";
-        user = ${user};
+        user = user;
       };
       default_session = initial_session;
     };
@@ -251,7 +251,7 @@
     enable = true;
     gui.enable = true;
     discovery = true;
-    user = ${user};
+    user = user;
     group = "users";
     configDir = "$HOME/.config/syncthing";
 #    overrideDevices = true;
