@@ -61,8 +61,8 @@ in
     };
 
     # Set suspend-then-hibernate as defaults
-    services.logind = lib.mkIf cfg.hibernation.enable {
-      handleLidSwitch = "suspend-then-hibernate";
+    services.logind.settings.Login = lib.mkIf cfg.hibernation.enable {
+      HandleLidSwitch = "suspend-then-hibernate";
       HandlePowerKey="suspend-then-hibernate";
       IdleAction="suspend-then-hibernate";
       IdleActionSec="2m";
