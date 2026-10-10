@@ -33,7 +33,7 @@
 		};
  	
 		nixosConfigurations.nix-desk = nixpkgs.lib.nixosSystem {
-			specialArgs = { inherit inputs; user = "jex";};
+			specialArgs = { inherit inputs; user = "jex"; };
 			modules = [
 				./configuration.nix
 				# renaming mangowm to mango

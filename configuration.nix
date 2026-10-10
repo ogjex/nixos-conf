@@ -110,6 +110,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
+
 	# allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
