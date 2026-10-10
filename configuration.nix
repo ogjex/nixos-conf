@@ -249,7 +249,6 @@
   systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true";
   services.syncthing = {
     enable = true;
-    gui.enable = true;
     user = user;
     group = "users";
     configDir = "/home/${user}/.config/syncthing";
