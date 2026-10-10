@@ -8,9 +8,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/hibernation.nix
     ];
 
-  # boot loader
+    # boot loader
   boot = {
     loader = {
       # hide generation os choice for bootloader
@@ -38,6 +39,12 @@
 #        "udev.log_level=3"
 #        "systemd.show_status=auto"
 #      ];
+  };
+
+  base.hibernation = {
+    enable = true;
+    device = "/dev/disk/by-label/NIXOS_SWAP";  # find with lsblk
+    hibernateAfterSleepDelay = "12h";   # override default
   };
 
   # --- nix system settings --- 
