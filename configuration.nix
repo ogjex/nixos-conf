@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, lib, config, inputs, ... }:
+{ pkgs, lib, user, config, inputs, ... }:
 
 {
   imports =
@@ -253,7 +253,7 @@
     discovery = true;
     user = user;
     group = "users";
-    configDir = "$HOME/.config/syncthing";
+    configDir = "/home/${user}/.config/syncthing";
 #    overrideDevices = true;
 #    overrideFolders = true;
 ## settings for devices
@@ -264,7 +264,7 @@
 #    folders = {
 #      "folder-id" = {
 #        label = "imgs";
-#        path = "/$HOME/imgs/";
+#        path = "/home/${user}/imgs/";
 #      # share with these devices
 #      devices = [
 #        "device desktop"
@@ -332,7 +332,7 @@
 
   environment.variables = {
     PATH = [
-      "$HOME/scripts"
+      "/home/${user}/scripts"
     ];
   };
  # prereqs for citrix_workspace
