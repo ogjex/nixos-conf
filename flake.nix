@@ -19,6 +19,7 @@
 
 	outputs = { nixpkgs, mangowm, mangobar, nixvim, ... } @ inputs: 
 	let
+    user = "jex";
 		system = "x86_64-linux";
 		pkgs = import nixpkgs { inherit system; };
 		nvim = nixvim.legacyPackages.${system}.makeNixvimWithModule {
