@@ -250,7 +250,6 @@
   services.syncthing = {
     enable = true;
     gui.enable = true;
-    discovery = true;
     user = user;
     group = "users";
     configDir = "/home/${user}/.config/syncthing";
