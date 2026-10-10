@@ -19,7 +19,6 @@
 
 	outputs = { nixpkgs, mangowm, mangobar, nixvim, ... } @ inputs: 
 	let
-    user = "jex";
 		system = "x86_64-linux";
 		pkgs = import nixpkgs { inherit system; };
 		nvim = nixvim.legacyPackages.${system}.makeNixvimWithModule {
@@ -34,7 +33,7 @@
 		};
  	
 		nixosConfigurations.nix-desk = nixpkgs.lib.nixosSystem {
-			specialArgs = { inherit inputs; };
+			specialArgs = { inherit inputs; user = "jex";};
 			modules = [
 				./configuration.nix
 				# renaming mangowm to mango
