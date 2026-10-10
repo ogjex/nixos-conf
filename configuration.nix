@@ -253,6 +253,15 @@
     };
   };
 
+  services.swayidle = {
+    enable = true;   
+    timeouts = [
+#      { timeout = 600; command = "swaylock -f"; }  # optional: lock first
+      { timeout = 610; command = "swaymsg 'output * dpms off'";
+        resumeCommand = "swaymsg 'output * dpms on'"; }
+    ];
+  };
+
   systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true";
   services.syncthing = {
     enable = true;
