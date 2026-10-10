@@ -6,7 +6,7 @@ result-*
 .direnv
 
 # ignore swap files
-.swp
+*.swp
 
 # Ignore NixOS interactive test driver history
 **/.nixos-test-history
