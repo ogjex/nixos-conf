@@ -244,7 +244,11 @@
       default_session = initial_session;
     };
   };
-  services.syncthing.enable = true;
+  services.syncthing = {
+    enable = true;
+    gui.enable = true;
+    discovery = true;
+  }
   # .............................................................................................................................................................................................
   # git
   programs.git = {
