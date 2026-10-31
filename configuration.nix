@@ -233,7 +233,7 @@
     texliveFull
 # unstable packages
     inputs.mangobar.packages.${pkgs.system}.mangobar
-    pkgs.leaf-markdown-viewer
+    leaf-markdown-viewer
   ];  
   # enable programs as modules
   #  programs.starship.enable = true;
