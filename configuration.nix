@@ -181,7 +181,6 @@
     wlogout
     sox
     wmenu
-    inputs.mangobar.packages.${pkgs.system}.mangobar
     xdg-desktop-portal-wlr
     wev
     wl-clipboard
@@ -232,6 +231,9 @@
     plantuml
     drawio
     texliveFull
+# unstable packages
+    inputs.mangobar.packages.${pkgs.system}.mangobar
+    leaf-markdown-viewer
   ];  
   # enable programs as modules
   #  programs.starship.enable = true;
